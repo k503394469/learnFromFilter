@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var numArr=new Array();
+            for (var i = 0; i < 10; i++) {
+                numArr[i]=i;
+            }
+            var number_sel = $("#number");
+            $.each(numArr,function (i) {
+                number_sel.append("<option>"+numArr[i]+"</option>");
+            })
+        });
+
+    </script>
+</head>
+<body>
+
+<select id="number">
+    <option>Please choose one</option>
+</select>
+</body>
+</html>

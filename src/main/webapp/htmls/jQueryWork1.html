@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery.js"></script>
+    <script type="text/javascript">
+        function clk() {
+            var inputVal = $("#userInput").val();
+            $("option[value='"+inputVal+"']").prop("selected","selected");
+        }
+    </script>
+</head>
+<body>
+请输入爱好:<input type="text" id="userInput" name="userInput"><br>
+<select id="interest">
+    <option value="足球">足球</option>
+    <option value="游戏">游戏</option>
+    <option value="篮球">篮球</option>
+    <option value="健身">健身</option>
+</select>
+<br>
+<input type="button" id="checkButton" value="判断" onclick="clk();">
+</body>
+</html>

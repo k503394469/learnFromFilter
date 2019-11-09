@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery.js"></script>
+</head>
+<body>
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<script>
+    //js
+    var js_divs = document.getElementsByTagName("div");//数组
+    for (var i = 0; i < js_divs.length; i++) {
+        js_divs[i].innerHTML="aaa";
+    }
+    //jq
+    var jq_divs = $("div");//数组
+    jq_divs.html("bbb");
+    //转换
+    //jq→js;jq对象[索引] 或者 jq对象.get(索引)
+    //js→jq:$(js对象)
+
+</script>
+</body>
+</html>
