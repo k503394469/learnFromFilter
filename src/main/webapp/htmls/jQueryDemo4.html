@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery.js"></script>
+    <script>
+        $(function () {
+            $("#b1").on("click",function () {
+               $("#name").focus();
+            });
+            $("#b2").click(function () {
+                $("#b1").off("click");
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="text" id="name" value="focusTest"><br>
+<input type="button" value="on" id="b1">
+<input type="button" value="off" id="b2">
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var i = 5;
+            var setId = setInterval(function () {
+                i--;
+                if (i <= 0) {
+                    $('#b1').val('同意').attr('disabled', false);
+                    clearInterval(setId);
+                }
+                else {
+                    $('#b1').val('请仔细阅读协议(' + i + ')');
+                }
+            }, 1000);
+
+        });
+    </script>
+</head>
+<body>
+
+<input type="button" id="b1" value="请仔细阅读协议(5)">
+</body>
+</html>
