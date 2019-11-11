@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+    <script src="../js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var stu={
+                "students":[
+                    {"name":"zhangsan","age":23,"sex":"male"},
+                    {"name":"lisi","age":23,"sex":"male"},
+                    {"name":"wangwu","age":23,"sex":"female"}
+                ]
+            };
+            for (var i=0;i<stu.students.length;i++){
+                var studentTemp = stu.students[i];
+                $("body").append("<h1>"+studentTemp["name"]+"</h1>").
+                append("<p style='margin: 0'>"+studentTemp["age"]+"</p>").
+                append("<p style='margin: 0'>"+studentTemp.sex+"</p>")
+            }
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
