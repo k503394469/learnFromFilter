@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <script src="../js/jQuery.js"></script>
+    <script>
+        $(function () {
+           $("#account").blur(function () {
+               var value = $("#account").val();
+               $.post("/learnFromFilter/ajaxDemoServlet",{
+                   "account":value
+               },function (respData) {
+                   if (respData=="已有"){
+                       $("#result").css("color","red").html(respData);
+                   }else if (respData=="可用"){
+                       $("#result").css("color","green").html(respData);
+                   }
+               });
+           });
+        });
+    </script>
+</head>
+<body>
+<input type="text" id="account" name="account"><span id="result"></span>
+</body>
+</html>
