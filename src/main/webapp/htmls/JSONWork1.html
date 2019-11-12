@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>work</title>
+    <script src="../js/jQuery.js"></script>
+    <script>
+        $(function () {
+           $("#username").blur(function () {
+               var username = $("#username").val();
+               $.post("/learnFromFilter/jSONDemo1Servlet",
+                   {"name":username}
+               ,function (data) {
+                   if (data.nameExist==true){
+                       $("#result").css("color","red").text(data.message);
+                   }else {
+                       $("#result").css("color","green").text(data.message);
+                   }
+               },"json");
+           });
+        });
+    </script>
+</head>
+<body>
+<input type="text" placeholder="username" id="username" name="name"><span id="result"></span>
+</body>
+</html>
