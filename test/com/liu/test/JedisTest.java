@@ -1,8 +1,10 @@
 package com.liu.test;
 
+import com.liu.learn.utils.JedisUtils;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import java.util.*;
 
@@ -63,6 +65,41 @@ public class JedisTest {
         jedis.del("jset");
         jedis.sadd("jset","1","2","3");
         System.out.println(jedis.smembers("jset"));
+        jedis.del("jsortset");
+        jedis.zadd("jsortset",3.2,"aaa");
+        jedis.zadd("jsortset",2.5,"bbb");
+        System.out.println(jedis.zrange("jsortset",0,-1));
+        jedis.close();
+    }
+    /**
+     * 连接池
+     */
+    @Test
+    public void t5() throws Exception{
+        JedisPool pool = new JedisPool();
+        jedis=pool.getResource();
+        jedis.del("jset");
+        jedis.sadd("jset","1","2","3");
+        System.out.println(jedis.smembers("jset"));
+        jedis.del("jsortset");
+        jedis.zadd("jsortset",3.2,"aaa");
+        jedis.zadd("jsortset",2.5,"bbb");
+        System.out.println(jedis.zrange("jsortset",0,-1));
+        jedis.close();
+    }
+    /**
+     * 工具类使用
+     */
+    @Test
+    public void t6() throws Exception{
+        Jedis jedis = JedisUtils.getJedis();
+        jedis.del("jset");
+        jedis.sadd("jset","1","2","3");
+        System.out.println(jedis.smembers("jset"));
+        jedis.del("jsortset");
+        jedis.zadd("jsortset",3.2,"aaa");
+        jedis.zadd("jsortset",2.5,"bbb");
+        System.out.println(jedis.zrange("jsortset",0,-1));
         jedis.close();
     }
 }
