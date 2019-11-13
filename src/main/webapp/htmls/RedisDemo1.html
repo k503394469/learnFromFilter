@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>redis</title>
+    <script src="../js/jQuery.js"></script>
+    <script>
+        $(function () {
+            $.post("/learnFromFilter/provinceFindServlet", {}, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                   var str="<option id='"+data[i].name+"'>"+data[i].name+"</option>";
+                    $("#province").append(str);
+                }
+            },"json");
+        });
+    </script>
+</head>
+<body>
+<select id="province">
+    <option>choose</option>
+</select>
+</body>
+</html>
